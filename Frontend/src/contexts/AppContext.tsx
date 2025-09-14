@@ -1,6 +1,6 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
-import { Page, Mode } from '../types';
-import { PREPAREDNESS_PALETTE, CRISIS_PALETTE } from '../constants';
+import React, { createContext, useState, useContext, type ReactNode } from 'react';
+import type { Page, Mode } from '../types';
+import { PREPAREDNESS_PALETTE, CRISIS_PALETTE } from '../constants/palettes';
 
 type Palette = typeof PREPAREDNESS_PALETTE;
 
@@ -19,25 +19,23 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [currentPage, setCurrentPage] = useState<Page>(Page.HOME);
-  const [currentMode, setCurrentMode] = useState<Mode>(Mode.PREPAREDNESS);
+  const [currentPage, setCurrentPage] = useState<Page>('HOME');
+  const [currentMode, setCurrentMode] = useState<Mode>('PREPAREDNESS');
 
-  const PALETTE = currentMode === Mode.PREPAREDNESS ? PREPAREDNESS_PALETTE : CRISIS_PALETTE;
+  const PALETTE = currentMode === 'PREPAREDNESS' ? PREPAREDNESS_PALETTE : CRISIS_PALETTE;
 
   const toggleMode = () => {
     setCurrentMode(prev => {
-      const newMode = prev === Mode.PREPAREDNESS ? Mode.CRISIS : Mode.PREPAREDNESS;
-      setCurrentPage(newMode === Mode.CRISIS ? Page.CRISIS_HOME : Page.HOME);
-      document.body.style.backgroundColor = newMode === Mode.PREPAREDNESS ? PREPAREDNESS_PALETTE.background : CRISIS_PALETTE.background;
+      const newMode = prev === 'PREPAREDNESS' ? 'CRISIS' : 'PREPAREDNESS';
+      setCurrentPage(newMode === 'CRISIS' ? 'CRISIS_HOME' : 'HOME');
       return newMode;
     });
   };
   
   const logout = () => {
     setIsAuthenticated(false);
-    setCurrentMode(Mode.PREPAREDNESS);
-    setCurrentPage(Page.HOME);
-    document.body.style.backgroundColor = PREPAREDNESS_PALETTE.background;
+    setCurrentMode('PREPAREDNESS');
+    setCurrentPage('HOME');
   };
 
   const value = {

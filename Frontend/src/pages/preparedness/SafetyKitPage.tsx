@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import PageHeader from '../../components/common/PageHeader';
-import { Page, SafetyKitItem } from '../../types';
-import { safetyKitItems as initialSafetyKitItems, CheckCircleIcon } from '../../constants';
+import type { SafetyKitItem } from '../../types';
+import { safetyKitItems as initialSafetyKitItems } from '../../constants/mockData';
+import { CheckCircleIcon } from '../../constants/icons';
 import { useAppContext } from '../../contexts/AppContext';
 
 const SafetyKitPage: React.FC = () => {
@@ -22,7 +23,7 @@ const SafetyKitPage: React.FC = () => {
 
   return (
     <div>
-      <PageHeader title="Safety Kit Checklist" onBack={() => setCurrentPage(Page.HOME)} />
+      <PageHeader title="Safety Kit Checklist" onBack={() => setCurrentPage('HOME')} />
       <div className="space-y-4">
         <div className="p-4 rounded-xl" style={{ backgroundColor: PALETTE.card, boxShadow: PALETTE.button_shadow }}>
           <div className="flex justify-between items-center mb-2">

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Page } from '../../types';
-import { user, TrophyIcon, ChevronRightIcon, PREPAREDNESS_PALETTE } from '../../constants';
+import { user } from '../../constants/mockData';
+import { TrophyIcon, ChevronRightIcon } from '../../constants/icons';
+import { PREPAREDNESS_PALETTE } from '../../constants/palettes';
 import { useAppContext } from '../../contexts/AppContext';
 
 const LeaderboardHighlight: React.FC = () => {
@@ -14,8 +15,12 @@ const LeaderboardHighlight: React.FC = () => {
                     <p className="text-sm" style={{ color: PREPAREDNESS_PALETTE.text_secondary }}>in District Preparedness!</p>
                 </div>
             </div>
-            <button onClick={() => setCurrentPage(Page.LEADERBOARD)} className="text-sm font-semibold p-2 rounded-lg" style={{ color: PREPAREDNESS_PALETTE.accent }}>
-            <ChevronRightIcon className="w-6 h-6" />
+            <button 
+                onClick={() => setCurrentPage('LEADERBOARD')}
+                className="text-sm font-semibold p-2 rounded-lg"
+                style={{ color: PREPAREDNESS_PALETTE.accent }}
+            >
+                <ChevronRightIcon className="w-6 h-6" />
             </button>
         </div>
     );

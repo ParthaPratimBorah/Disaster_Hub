@@ -1,7 +1,6 @@
 import React from 'react';
 import PageHeader from '../../components/common/PageHeader';
-import { Page } from '../../types';
-import { leaderboardData } from '../../constants';
+import { leaderboardData } from '../../constants/mockData';
 import { useAppContext } from '../../contexts/AppContext';
 
 const LeaderboardPage: React.FC = () => {
@@ -9,7 +8,7 @@ const LeaderboardPage: React.FC = () => {
 
     return (
         <div>
-            <PageHeader title="Preparedness Leaderboard" onBack={() => setCurrentPage(Page.HOME)} />
+            <PageHeader title="Preparedness Leaderboard" onBack={() => setCurrentPage('HOME')} />
             <div className="space-y-3">
             {leaderboardData.map(player => (
                 <div 

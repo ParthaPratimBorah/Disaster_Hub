@@ -1,6 +1,7 @@
+/* VisualNovel.css */
 body {
   font-family: 'Crimson Text', serif;
-  touch-action: manipulation; /* Prevents double-tap zoom on mobile */
+  touch-action: manipulation;
 }
 
 .text-shadow {
