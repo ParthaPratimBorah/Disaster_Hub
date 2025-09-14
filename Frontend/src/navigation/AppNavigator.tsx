@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Page, Mode } from '../types';
 import { ShieldIcon } from '../constants/icons';
-import { CRISIS_PALETTE } from '../constants/palettes'; // Still need this for the button's crisis color
+import { CRISIS_PALETTE } from '../constants/palettes';
 import { useAppContext } from '../contexts/AppContext';
 import BottomNavBar from './BottomNavBar';
 
@@ -14,7 +14,7 @@ import LearnPage from '../pages/preparedness/LearnPage';
 import SafetyKitPage from '../pages/preparedness/SafetyKitPage';
 import LeaderboardPage from '../pages/preparedness/LeaderboardPage';
 import CrisisHomePage from '../pages/crisis/CrisisHomePage';
-import CrisisMapPage from '../pages/crisis/CrisisMapPage';
+import CrisisMapPage from '../pages/crisis/CrisisMapPage'; // Make sure this is imported
 import EmergencyContactsPage from '../pages/crisis/EmergencyContactsPage';
 import CrisisProfilePage from '../pages/crisis/CrisisProfilePage';
 
@@ -31,7 +31,7 @@ const pageComponents = {
   },
   ['CRISIS' as Mode]: {
     ['HOME' as Page]: CrisisHomePage,
-    ['MAP' as Page]: CrisisMapPage,
+    ['MAP' as Page]: CrisisMapPage, // <-- This is the crucial line
     ['CONTACTS' as Page]: EmergencyContactsPage,
     ['PROFILE' as Page]: CrisisProfilePage,
     // Defaulting to Crisis Home if other pages don't have a crisis view
@@ -45,7 +45,6 @@ const pageComponents = {
 const AppNavigator: React.FC = () => {
   const { currentPage, currentMode, PALETTE, toggleMode } = useAppContext();
   
-  // Use string literals to access the correct component
   const PageComponent = pageComponents[currentMode][currentPage] || pageComponents[currentMode]['HOME' as Page];
 
   return (

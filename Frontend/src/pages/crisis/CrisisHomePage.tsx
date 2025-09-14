@@ -22,7 +22,8 @@ const CrisisHomePage: React.FC = () => {
             </button>
 
             <div className="grid grid-cols-2 gap-4 w-full">
-                <CrisisButton icon={ShelterIcon} text="Find Shelters" onClick={() => setCurrentPage('CRISIS_MAP')} />
+                {/* Correcting the onClick handler to set the page to 'MAP' */}
+                <CrisisButton icon={ShelterIcon} text="Find Shelters" onClick={() => setCurrentPage('MAP')} />
                 <CrisisButton icon={PhoneIcon} text="Contacts" onClick={() => setCurrentPage('CONTACTS')} />
             </div>
         </div>

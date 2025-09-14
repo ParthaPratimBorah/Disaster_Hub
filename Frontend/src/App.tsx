@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AppProvider, useAppContext } from './contexts/AppContext';
+import { DisasterProvider } from './contexts/DisasterContext'; // Import the new provider
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import AppNavigator from './navigation/AppNavigator';
@@ -27,7 +28,6 @@ const Auth: React.FC = () => {
 const AppContent: React.FC = () => {
   const { isAuthenticated, PALETTE } = useAppContext();
   
-  // This is the correct place to apply the background color based on the current palette
   return (
     <div 
       className="w-full max-w-sm mx-auto h-screen flex flex-col font-sans" 
@@ -39,8 +39,11 @@ const AppContent: React.FC = () => {
 };
 
 const App: React.FC = () => (
+  // Wrap the App with the new provider
   <AppProvider>
-    <AppContent />
+    <DisasterProvider> 
+      <AppContent />
+    </DisasterProvider>
   </AppProvider>
 );
 

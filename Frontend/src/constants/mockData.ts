@@ -1,6 +1,6 @@
 import type { User, EducationModule, Badge, MapPoint, HistoryItem, SafetyKitItem, LeaderboardUser, SurvivalGuide, NewsUpdate, EmergencyContact } from '../types';
 import { FirstAidIcon, WaterIcon, ShelterIcon, PhoneIcon } from './icons';
-import { FloodSVG, CycloneSVG, EarthquakeSVG, FireSVG } from './icons'; // <-- Correct Import Statement
+import { FloodSVG, CycloneSVG, EarthquakeSVG, FireSVG } from './icons';
 
 // --- MOCK DATA ---
 export const user: User = {
@@ -18,7 +18,7 @@ export const user: User = {
     ],
 };
 
-export const educationModules: EducationModule[] = [ // <-- Explicit Type
+export const educationModules: EducationModule[] = [
     { title: 'Flood Preparedness', disasterType: 'Flood', thumbnail: FloodSVG },
     { title: 'Cyclone Safety', disasterType: 'Cyclone', thumbnail: CycloneSVG },
     { title: 'Earthquake Survival', disasterType: 'Earthquake', thumbnail: EarthquakeSVG },
@@ -34,10 +34,18 @@ export const badges: Badge[] = [
     { name: 'First Aid Ready', icon: '🩹' },
 ];
 
+// Corrected `mapPoints` data with geographic coordinates
 export const mapPoints: MapPoint[] = [
-    { id: 1, type: 'shelter', position: { top: '30%', left: '40%' }, name: 'Community Hall' },
-    { id: 2, type: 'shelter', position: { top: '60%', left: '70%' }, name: 'Local School' },
-    { id: 3, type: 'danger', position: { top: '55%', left: '20%' }, name: 'Low-lying Area' },
+    { id: 1, type: 'shelter', position: { lat: 28.6253, lng: 77.2185 }, name: 'Community Hall' },
+    { id: 2, type: 'shelter', position: { lat: 28.6500, lng: 77.2285 }, name: 'Local School' },
+    { id: 3, type: 'shelter', position: { lat: 28.6012, lng: 77.2345 }, name: 'Evacuation Center' },
+    { id: 4, type: 'shelter', position: { lat: 28.6345, lng: 77.1982 }, name: 'Civic Center' },
+    { id: 5, type: 'shelter', position: { lat: 28.6421, lng: 77.2055 }, name: 'Public Library' },
+    { id: 6, type: 'danger', position: { lat: 28.5919, lng: 77.2001 }, name: 'Low-lying Area' },
+    { id: 7, type: 'danger', position: { lat: 28.6654, lng: 77.2430 }, name: 'Landslide Zone' },
+    { id: 8, type: 'danger', position: { lat: 28.6811, lng: 77.2764 }, name: 'High-risk Flood Zone' },
+    { id: 9, type: 'shelter', position: { lat: 28.6290, lng: 77.2510 }, name: 'Hospital' },
+    { id: 10, type: 'shelter', position: { lat: 28.6050, lng: 77.2110 }, name: 'Police Station' },
 ];
 
 export const history: HistoryItem[] = [

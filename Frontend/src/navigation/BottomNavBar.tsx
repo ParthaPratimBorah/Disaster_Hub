@@ -14,10 +14,10 @@ const BottomNavBar: React.FC = () => {
     ];
     
     const crisisNavItems = [
-        { page: 'CRISIS_HOME' as Page, icon: HomeIcon, label: 'Home' },
-        { page: 'CRISIS_MAP' as Page, icon: MapIcon, label: 'Map' },
+        { page: 'HOME' as Page, icon: HomeIcon, label: 'Home' },
+        { page: 'MAP' as Page, icon: MapIcon, label: 'Map' }, // <-- This is the fix
         { page: 'CONTACTS' as Page, icon: PhoneIcon, label: 'Contacts' },
-        { page: 'CRISIS_PROFILE' as Page, icon: ShieldIcon, label: 'Status' },
+        { page: 'PROFILE' as Page, icon: ShieldIcon, label: 'Status' },
     ];
 
     const navItems = currentMode === 'PREPAREDNESS' ? preparednessNavItems : crisisNavItems;

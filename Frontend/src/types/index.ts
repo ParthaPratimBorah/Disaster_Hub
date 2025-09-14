@@ -45,10 +45,14 @@ export interface Badge {
 
 export interface MapPoint {
   id: number;
-  type: 'shelter' | 'danger';
-  position: { top: string; left: string };
+  type: 'shelter' | 'danger' | 'route';
   name: string;
+  position: {
+    lat: number;
+    lng: number;
+  };
 }
+
 
 export interface HistoryItem {
   id: number;
