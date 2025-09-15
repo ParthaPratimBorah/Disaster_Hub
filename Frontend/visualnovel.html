@@ -34,11 +34,60 @@
             50% { transform: translate(-1px, -2px) rotate(0.5deg); }
             75% { transform: translate(1px, -1px) rotate(-0.2deg); }
         }
+
+        /* Responsive Styles */
+        @media (max-width: 767px) {
+            body {
+                padding: 0.5rem;
+            }
+            #game-container {
+                aspect-ratio: 9 / 16;
+                width: 100%;
+                max-width: 400px; /* Limit width on mobile for better appearance */
+                margin: auto;
+            }
+            #dialogue-text {
+                font-size: 1rem; /* approx text-base */
+                min-height: 7rem;
+            }
+            #ui-container {
+                padding: 1rem;
+            }
+            #choices-container {
+                flex-direction: column;
+            }
+            .choice-button {
+                font-size: 1rem;
+                padding: 0.75rem 1rem;
+            }
+            #start-screen h1 {
+                font-size: 2.5rem;
+            }
+            #start-screen p {
+                font-size: 1rem;
+            }
+        }
+        @media (min-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            #game-container {
+                aspect-ratio: 16 / 9;
+                max-width: 1280px;
+                width: 100%;
+            }
+             #dialogue-text {
+                min-height: 5rem;
+            }
+            #choices-container {
+                flex-direction: row;
+            }
+        }
     </style>
 </head>
-<body class="bg-gray-900 flex items-center justify-center h-screen overflow-hidden p-2 sm:p-4">
+<body class="bg-gray-900 flex items-center justify-center h-screen overflow-hidden">
 
-    <div id="game-container" class="relative w-full max-w-5xl aspect-[16/9] bg-black rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
+    <div id="game-container" class="relative bg-black rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
         <!-- Background Image -->
         <!-- The initial image corresponds to "1. The Calm Before" -->
         <img id="background-image" src="/public/image_1_calm_before.png" alt="Game Background" class="absolute top-0 left-0 w-full h-full object-cover">
@@ -51,11 +100,11 @@
         <!-- UI Container -->
         <div id="ui-container" class="absolute bottom-0 left-0 w-full p-4 sm:p-6 text-shadow">
             <div class="bg-black bg-opacity-40 rounded-xl p-4 sm:p-6 text-white backdrop-blur-sm border border-white/20">
-                <p id="dialogue-text" class="text-lg sm:text-sm md:text-xl h-14 sm:h-18 md:h-22"></p>
+                <p id="dialogue-text" class="text-base sm:text-lg md:text-xl"></p>
             </div>
 
             <!-- Choices -->
-            <div id="choices-container" class="flex flex-col sm:flex-row justify-end gap-4 mt-4">
+            <div id="choices-container" class="flex justify-end gap-4 mt-4">
                 <!-- Choice buttons will be injected here by JavaScript -->
             </div>
         </div>
@@ -185,14 +234,14 @@
                     scene.choices.forEach(choice => {
                         const button = document.createElement('button');
                         button.innerText = choice.text;
-                        button.className = 'choice-button bg-black bg-opacity-70 text-white font-bold py-2 px-6 rounded-lg hover:bg-violet-700 text-lg shadow-md w-full sm:w-auto';
+                        button.className = 'choice-button bg-black bg-opacity-70 text-white font-bold py-2 px-6 rounded-lg hover:bg-violet-700 text-lg shadow-md w-full';
                         button.onclick = () => showScene(choice.next);
                         choicesContainer.appendChild(button);
                     });
                 } else if (scene.next) {
                     const button = document.createElement('button');
                     button.innerText = 'Next →';
-                    button.className = 'choice-button bg-black bg-opacity-70 text-white font-bold py-2 px-6 rounded-lg hover:bg-violet-700 text-lg shadow-md w-full sm:w-auto';
+                    button.className = 'choice-button bg-black bg-opacity-70 text-white font-bold py-2 px-6 rounded-lg hover:bg-violet-700 text-lg shadow-md w-full';
                     button.onclick = () => showScene(scene.next);
                     choicesContainer.appendChild(button);
                 }

@@ -4,6 +4,7 @@ import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import AppNavigator from './navigation/AppNavigator';
 import { PREPAREDNESS_PALETTE } from './constants';
+import { Page } from './types';
 
 const Auth: React.FC = () => {
   const { setIsAuthenticated } = useAppContext();
@@ -22,10 +23,16 @@ const Auth: React.FC = () => {
 
 
 const AppContent: React.FC = () => {
-  const { isAuthenticated, PALETTE } = useAppContext();
+  const { isAuthenticated, PALETTE, currentPage } = useAppContext();
   
+  const isVisualNovelPage = isAuthenticated && currentPage === Page.VISUAL_NOVEL_EARTHQUAKE;
+
+  const containerClassName = isVisualNovelPage
+    ? "w-full h-screen flex flex-col font-sans"
+    : "w-full max-w-sm mx-auto h-screen flex flex-col font-sans";
+
   return (
-    <div className="w-full max-w-sm mx-auto h-screen flex flex-col font-sans" style={{ backgroundColor: PALETTE.background }}>
+    <div className={containerClassName} style={{ backgroundColor: PALETTE.background }}>
        {isAuthenticated ? <AppNavigator /> : <Auth />}
     </div>
   );
