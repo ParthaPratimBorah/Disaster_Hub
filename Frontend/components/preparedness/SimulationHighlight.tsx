@@ -45,7 +45,7 @@ const SimulationHighlight: React.FC = () => {
   return (
     <div>
       <div className="flex justify-between items-center mb-2">
-        <h3 className="text-lg font-bold" style={{ color: PALETTE.text_primary }}>Situation Simulations</h3>
+        <h3 className="text-lg font-bold" style={{ color: PALETTE.text_primary }}>Situation Simulation Games</h3>
         <button onClick={handleNavigateToList} className="text-sm font-semibold p-1 rounded-lg flex items-center" style={{ color: PALETTE.accent }}>
           View All <ChevronRightIcon className="w-4 h-4" />
         </button>

@@ -100,7 +100,7 @@ const AppNavigator: React.FC = () => {
       >
           <div className="flex items-center gap-2">
               <ShieldIcon className="w-6 h-6" style={{ color: PALETTE.text_primary }} />
-              <h1 className="text-xl font-bold" style={{ color: PALETTE.text_primary }}>Disaster Hub</h1>
+              <h1 className="text-xxl font-bold" style={{ color: PALETTE.text_primary }}>ResQ</h1>
           </div>
           <button 
               onClick={toggleMode}

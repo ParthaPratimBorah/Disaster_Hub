@@ -21,8 +21,8 @@ import {
 // --- MOCK DATA ---
 export const user: User = {
     name: 'Partha',
-    avatar: 'https://i.pravatar.cc/150?u=partha',
-    class: 'Class 8',
+    avatar: 'https://as1.ftcdn.net/jpg/05/90/59/88/1000_F_590598870_TOcGd4cUZzPoEMlxSc7XYwcupHOE0vLM.jpg',
+    class: 'Class 12',
     school: 'Springdale Public School',
     preparednessScore: 72,
     rank: 4,
@@ -219,12 +219,12 @@ export const safetyKitItems: SafetyKitItem[] = [
 ];
 
 export const leaderboardData: LeaderboardUser[] = [
-  { rank: 1, name: 'Rina', score: 98, isCurrentUser: false },
-  { rank: 2, name: 'Amit', score: 95, isCurrentUser: false },
-  { rank: 3, name: 'Sunita', score: 89, isCurrentUser: false },
+  { rank: 1, name: 'Debraj', score: 98, isCurrentUser: false },
+  { rank: 2, name: 'Rajdeep', score: 95, isCurrentUser: false },
+  { rank: 3, name: 'Priyam', score: 89, isCurrentUser: false },
   { rank: 4, name: 'Partha', score: 72, isCurrentUser: true },
-  { rank: 5, name: 'Vikram', score: 68, isCurrentUser: false },
-  { rank: 6, name: 'Priya', score: 65, isCurrentUser: false },
+  { rank: 5, name: 'Rituraj,', score: 68, isCurrentUser: false },
+  { rank: 6, name: 'Ishita', score: 65, isCurrentUser: false },
 ];
 
 export const survivalGuides: SurvivalGuide[] = [
